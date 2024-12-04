@@ -17,9 +17,7 @@ using System.Windows.Shapes;
 
 namespace Kyrsuch
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
+    
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -35,7 +33,7 @@ namespace Kyrsuch
                 var viewModel = this.DataContext as MainViewModel;
                 if (viewModel != null)
                 {
-                    // Передаем значение пароля в ViewModel
+                    // Передаємо значеня паролю в ViewModel
                     viewModel.Password = passwordBox.Password;
                 }
             }

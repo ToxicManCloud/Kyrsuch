@@ -30,10 +30,10 @@ public class CitiesViewModel : BaseViewModel
 
     public CitiesViewModel()
     {
-        LoadCities(); // Загружаем города из файла
-        SaveCommand = new RelayCommand(SaveChanges, CanSaveChanges); // Добавляем CanExecute
+        LoadCities(); // Завантажуємо міста з файлу
+        SaveCommand = new RelayCommand(SaveChanges, CanSaveChanges); 
         AddCityCommand = new RelayCommand(AddCity);
-        DeleteCityCommand = new RelayCommand(DeleteCity, CanDeleteCity); // Добавляем команду для удаления
+        DeleteCityCommand = new RelayCommand(DeleteCity, CanDeleteCity); //Додаємо видалення
         BackCommand = new RelayCommand(Back);
     }
 
@@ -58,49 +58,49 @@ public class CitiesViewModel : BaseViewModel
             var cityToUpdate = Cities.FirstOrDefault(c => c.CityName == SelectedCity.CityName);
             if (cityToUpdate != null)
             {
-                cityToUpdate.ChatLink = SelectedCity.ChatLink; // Сохраняем изменения
+                cityToUpdate.ChatLink = SelectedCity.ChatLink; // Зберігаємо зміни
                 SaveCities();
-                MessageBox.Show("Город обновлен.");
+                MessageBox.Show("Місто оновлено.");
             }
             else
             {
-                MessageBox.Show("Город не найден.");
+                MessageBox.Show("Місто не знайдено.");
             }
         }
     }
 
     private bool CanSaveChanges()
     {
-        // Команда доступна только если выбран город
+        // Доступ лише колди обране місто
         return SelectedCity != null;
     }
 
     private void AddCity()
     {
-        var newCity = new City { CityName = "Новое город", ChatLink = "Новая ссылка" };
-        Cities.Add(newCity); // Добавляем город в коллекцию
-        SelectedCity = newCity; // Устанавливаем новый город для редактирования
+        var newCity = new City { CityName = "Нове місто", ChatLink = "Нове посилання" };
+        Cities.Add(newCity); // Додаємо місто в колекцію
+        SelectedCity = newCity; // Встановлюємо місто для редагування
         SaveCities();
-        MessageBox.Show("Новый город добавлен.");
+        MessageBox.Show("Нове місто додано.");
     }
 
     private void DeleteCity()
     {
         if (SelectedCity != null)
         {
-            Cities.Remove(SelectedCity); // Удаление города из коллекции
-            SaveCities(); // Сохранение изменений в файл
-            MessageBox.Show("Город удален.");
+            Cities.Remove(SelectedCity); // Видаляємо місто з колекції
+            SaveCities(); // Збереження змін у файл 
+            MessageBox.Show("Місто видалено видалено.");
         }
         else
         {
-            MessageBox.Show("Не выбран город для удаления.");
+            MessageBox.Show("Оберіть місто для видалення.");
         }
     }
 
     private bool CanDeleteCity()
     {
-        // Проверяем, выбран ли город
+        // перевірка на обрання міста
         return SelectedCity != null;
     }
 

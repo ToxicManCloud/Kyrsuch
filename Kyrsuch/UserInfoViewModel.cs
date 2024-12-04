@@ -63,7 +63,7 @@ public class UserInfoViewModel : ViewModelBase
         _users = LoadUsers();
         _cities = LoadCities();
 
-        // Инициализация свойств
+        // Ініціалізація параметрів
         Username = _currentUser.Username;
         Password = _currentUser.Password;
         Name = _currentUser.Name;
@@ -71,7 +71,7 @@ public class UserInfoViewModel : ViewModelBase
         SelectedGender = _currentUser.SelectedGender;
         SelectedCity = _cities.FirstOrDefault(c => c.CityName == _currentUser.CityName);
 
-        // Инициализация команд
+        // Ініціалізація команд
         EditCommand = new RelayCommand(Edit);
         SaveCommand = new RelayCommand(Save);
         BackCommand = new RelayCommand(Back);
@@ -140,7 +140,7 @@ public class UserInfoViewModel : ViewModelBase
         if (userToUpdate != null)
         {
             userToUpdate.Username = Username;
-            userToUpdate.Password = Password;  // Оновлення пароля
+            userToUpdate.Password = Password;  // оновлення паролю
             userToUpdate.Name = Name;
             userToUpdate.Age = Age;
             userToUpdate.SelectedGender = SelectedGender;
@@ -201,7 +201,7 @@ public class UserInfoViewModel : ViewModelBase
 
     public void Back()
     {
-        // Логика для возврата на главное окно
+        // Логіка повернення до головного меню
         var mainWindow = new MainWindow();
         mainWindow.Show();
         Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w is UserInfoWindow)?.Close();

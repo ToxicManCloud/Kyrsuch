@@ -192,12 +192,12 @@ namespace Kyrsuch
         {
             if (!File.Exists(UsersFilePath))
             {
-                return new User[0];  // Возвращаем пустой массив, если файл не существует
+                return new User[0];  // повертаємо пустий масив якщо файл не існує
             }
 
             var json = File.ReadAllText(UsersFilePath);
 
-            // Попытка десериализации в массив
+            // намагання десерелізацію 
             try
             {
                 var users = JsonConvert.DeserializeObject<User[]>(json);
@@ -205,7 +205,7 @@ namespace Kyrsuch
             }
             catch (JsonSerializationException)
             {
-                // Если файл содержит один объект пользователя, преобразуем его в массив
+                // перетворення файлу в масив
                 var singleUser = JsonConvert.DeserializeObject<User>(json);
                 return singleUser != null ? new[] { singleUser } : new User[0];
             }
@@ -214,7 +214,7 @@ namespace Kyrsuch
 
         private void SaveUsers(User[] users)
         {
-            var json = JsonConvert.SerializeObject(users, Formatting.Indented);  // Сериализуем массив пользователей
+            var json = JsonConvert.SerializeObject(users, Formatting.Indented);  // серіалізуємо вастивості
             File.WriteAllText(UsersFilePath, json);
         }
 

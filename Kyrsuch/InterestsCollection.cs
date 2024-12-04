@@ -6,24 +6,24 @@ using System.IO;
 
 namespace Kyrsuch
 {
-    public class InterestsCollection : List<City>
+    public class CityCollection : List<City>
     {
-        // Загрузка интересов из файла
-        public static InterestsCollection LoadFromFile(string filePath)
+        // Завантаження з файлу міста
+        public static CityCollection LoadFromFile(string filePath)
         {
             if (File.Exists(filePath))
             {
                 var json = File.ReadAllText(filePath);
                 var items = JsonConvert.DeserializeObject<List<City>>(json);
-                var collection = new InterestsCollection();
+                var collection = new CityCollection();
                 collection.AddRange(items);
                 return collection;
             }
 
-            return new InterestsCollection();
+            return new CityCollection();
         }
 
-        // Сохранение интересов в файл
+        // Збереження файлів в міста
         public void SaveToFile(string filePath)
         {
             var json = JsonConvert.SerializeObject(this, Formatting.Indented);

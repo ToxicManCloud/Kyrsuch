@@ -17,7 +17,7 @@ namespace Kyrsuch
 
         public UsersViewModel()
         {
-            // Загружаємо користувачів з файлу
+            // Завантажуємо користувачів з файлу
             Users = new ObservableCollection<User>(LoadUsers());
 
             DeleteUserCommand = new RelayCommand(DeleteUser, CanDeleteUser);
