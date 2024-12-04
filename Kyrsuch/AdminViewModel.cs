@@ -4,6 +4,7 @@ using System.Windows.Input;
 
 namespace Kyrsuch
 {
+    //Роби коміти
     public class AdminViewModel : BaseViewModel
     {
         public ICommand ViewUsersCommand { get; }
