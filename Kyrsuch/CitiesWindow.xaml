@@ -1,0 +1,106 @@
+﻿<Window x:Class="Kyrsuch.CitiesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="Міста" Height="750" Width="544" 
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+
+    <!-- Основний фон: прозорий для створення ефекту рамки -->
+    <Window.Background>
+        <SolidColorBrush Color="Transparent" />
+    </Window.Background>
+
+    <Grid>
+        <!-- Рамка з фоном -->
+        <Border Background="{DynamicResource BackgroundImage}" BorderBrush="#FF1493" BorderThickness="8" CornerRadius="20" Padding="10" Height="755" VerticalAlignment="Center">
+            <Border.Resources>
+                <ImageBrush x:Key="BackgroundImage" ImageSource="pack://application:,,,/Resource/фон.jpg" Stretch="UniformToFill" />
+            </Border.Resources>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Заголовок -->
+                <TextBlock Grid.Row="0" FontSize="28" FontWeight="Bold" Text="Міста"
+                           Foreground="White" TextAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,10" />
+
+                <!-- Основний контент -->
+                <StackPanel Grid.Row="1" Margin="10" VerticalAlignment="Top">
+                    <!-- Таблиця міст -->
+                    <Border Background="#3E3E3E" BorderBrush="#FF1493" BorderThickness="2" CornerRadius="10">
+                        <DataGrid x:Name="CitiesDataGrid" AutoGenerateColumns="False" 
+                                  CanUserAddRows="False" CanUserDeleteRows="True" 
+                                  ItemsSource="{Binding Cities}" 
+                                  SelectedItem="{Binding SelectedCity}" 
+                                  Margin="10" Background="Transparent" Foreground="Black"
+                                  ColumnHeaderHeight="40" RowHeight="35">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Назва міста" Binding="{Binding CityName}" Width="2*" />
+                                <DataGridTextColumn Header="Посилання на чат" Binding="{Binding ChatLink}" Width="3*" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+
+                    <!-- Поля введення -->
+                    <StackPanel Margin="0,20,0,0">
+                        <StackPanel Margin="0,10">
+                            <TextBlock Text="Назва міста:" FontSize="14" Foreground="White" Margin="0,0,0,5" />
+                            <Border Background="#3E3E3E" BorderBrush="#FF1493" BorderThickness="2" CornerRadius="10" Height="40">
+                                <xctk:WatermarkTextBox Text="{Binding SelectedCity.CityName}" 
+                                                       Watermark="Назва міста" 
+                                                       Background="Transparent" Foreground="White" 
+                                                       Padding="5" FontSize="14" />
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,10">
+                            <TextBlock Text="Посилання на чат:" FontSize="14" Foreground="White" Margin="0,0,0,5" />
+                            <Border Background="#3E3E3E" BorderBrush="#FF1493" BorderThickness="2" CornerRadius="10" Height="40">
+                                <xctk:WatermarkTextBox Text="{Binding SelectedCity.ChatLink}" 
+                                                       Watermark="Посилання на чат" 
+                                                       Background="Transparent" Foreground="White" 
+                                                       Padding="5" FontSize="14" />
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <!-- Додавання стилю для кнопок -->
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="15" 
+                                Padding="5">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </StackPanel.Resources>
+
+                    <!-- Кнопки з відступами -->
+                    <Button Content="Зберегти зміни" Command="{Binding SaveCommand}" Width="364" Height="40"
+            Background="#FF1493" Foreground="White" FontSize="14" FontWeight="Bold" Margin="0,5,0,5" />
+                    <Button Content="Додати нове місто" Command="{Binding AddCityCommand}" Width="364" Height="40"
+            Background="#FF61A6" Foreground="White" FontSize="14" FontWeight="Bold" Margin="0,5,0,5" />
+                    <Button Content="Видалити обране місто" Command="{Binding DeleteCityCommand}" Width="363" Height="40"
+            Background="#FF4C4C" Foreground="White" FontSize="14" FontWeight="Bold" Margin="0,5,0,5" />
+                    <Button Content="Назад" Command="{Binding BackCommand}" Width="361" Height="40"
+            Background="#444444" Foreground="White" FontSize="14" FontWeight="Bold" Margin="0,5,0,0" />
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

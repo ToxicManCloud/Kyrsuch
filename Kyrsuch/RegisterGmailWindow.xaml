@@ -1,0 +1,140 @@
+﻿<Window x:Class="Kyrsuch.RegisterGmailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Kyrsuch"
+        Title="Реєстрація" Height="810" Width="470" 
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+
+    <Window.DataContext>
+        <local:RegisterViewModel />
+    </Window.DataContext>
+
+    <Window.Background>
+        <SolidColorBrush Color="Transparent" />
+    </Window.Background>
+
+    <Window.Resources>
+        <!-- Стиль для кнопок без зміни кольору на наведення -->
+        <Style TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Background" Value="#FF1493" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="20"
+                                BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border Background="{DynamicResource BackgroundImage}" BorderBrush="#FF1493" BorderThickness="12" CornerRadius="20" Padding="10" Height="805" VerticalAlignment="Center">
+        <Border.Resources>
+            <ImageBrush x:Key="BackgroundImage" ImageSource="pack://application:,,,/Resource/фон.jpg" Stretch="UniformToFill" />
+        </Border.Resources>
+
+        <Grid Margin="0,0,0,-44">
+            <TextBlock FontSize="28" FontWeight="Bold" Text="Реєстрація" 
+                       Foreground="White" TextAlignment="Center" Margin="0,0,0,27" />
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="320">
+                <!-- Gmail -->
+                <StackPanel Margin="0,10">
+                    <TextBlock Text="Gmail" FontSize="14" Foreground="White" Margin="0,0,0,5" />
+                    <Border Background="#3E3E3E" BorderBrush="#FF1493" BorderThickness="2" CornerRadius="10" Height="40">
+                        <TextBox Text="{Binding Username}" FontSize="14" TextChanged="TextBox_TextChanged_1"
+                                 Background="Transparent" Foreground="White" Padding="10,0" Width="312" 
+                                 HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+                    </Border>
+                </StackPanel>
+
+                <!-- Пароль -->
+                <StackPanel Margin="0,10">
+                    <TextBlock Text="Пароль" FontSize="14" Foreground="White" Margin="0,0,0,5" />
+                    <Border Background="#3E3E3E" BorderBrush="#FF1493" BorderThickness="2" CornerRadius="10" Height="40">
+                        <PasswordBox FontSize="14" 
+                                     Background="Transparent" Foreground="White" Padding="10,0" Width="318" 
+                                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
+                                     PasswordChanged="PasswordBox_PasswordChanged" />
+                    </Border>
+                </StackPanel>
+
+                <!-- Підтвердження пароля -->
+                <StackPanel Margin="0,10">
+                    <TextBlock Text="Підтвердження паролю" FontSize="14" Foreground="White" Margin="0,0,0,5" />
+                    <Border Background="#3E3E3E" BorderBrush="#FF1493" BorderThickness="2" CornerRadius="10" Height="40">
+                        <PasswordBox FontSize="14" 
+                                     Background="Transparent" Foreground="White" Padding="10,0" Width="318" 
+                                     HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
+                                     PasswordChanged="ConfirmPasswordBox_PasswordChanged" />
+                    </Border>
+                </StackPanel>
+
+                <!-- Ім'я -->
+                <StackPanel Margin="0,10">
+                    <TextBlock Text="Ім'я" FontSize="14" Foreground="White" Margin="0,0,0,5" />
+                    <Border Background="#3E3E3E" BorderBrush="#FF1493" BorderThickness="2" CornerRadius="10" Height="40">
+                        <TextBox Text="{Binding Name}" FontSize="14" 
+                                 Background="Transparent" Foreground="White" Padding="10,0" Width="312" 
+                                 HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+                    </Border>
+                </StackPanel>
+
+                <!-- Стать -->
+                <StackPanel Margin="0,10">
+                    <TextBlock Text="Стать" FontSize="14" Foreground="White" Margin="0,0,0,5" />
+                    <Border Background="#3E3E3E" BorderBrush="#FF1493" BorderThickness="2" CornerRadius="10" Height="40">
+                        <ComboBox SelectedValue="{Binding SelectedGender}" SelectedValuePath="Content"
+                                  Background="Transparent" Foreground="Black" Padding="10,0" Width="312" 
+                                  HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
+                            <ComboBoxItem Content="Не хочу вказувати" />
+                            <ComboBoxItem Content="Чоловік" />
+                            <ComboBoxItem Content="Жінка" />
+                        </ComboBox>
+                    </Border>
+                </StackPanel>
+
+                <!-- Вік -->
+                <StackPanel Margin="0,10">
+                    <TextBlock Text="Вік" FontSize="14" Foreground="White" Margin="0,0,0,5" />
+                    <Border Background="#3E3E3E" BorderBrush="#FF1493" BorderThickness="2" CornerRadius="10" Height="40">
+                        <TextBox Text="{Binding Age}" FontSize="14" 
+                                 Background="Transparent" Foreground="White" Padding="10,0" Width="312" 
+                                 HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="TextBox_TextChanged" />
+                    </Border>
+                </StackPanel>
+
+                <!-- Місто -->
+                <StackPanel Margin="0,10">
+                    <TextBlock Text="Місто" FontSize="14" Foreground="White" Margin="0,0,0,5" />
+                    <Border Background="#3E3E3E" BorderBrush="#FF1493" BorderThickness="2" CornerRadius="10" Height="40">
+                        <ComboBox ItemsSource="{Binding Cities}" DisplayMemberPath="CityName" SelectedItem="{Binding SelectedCity}" 
+                                  Background="Transparent" Foreground="Black" Padding="10,0" Width="312" 
+                                  HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+                    </Border>
+                </StackPanel>
+
+                <!-- Кнопки -->
+                <StackPanel Margin="0,30,0,5">
+                    <Border Background="#FF1493" CornerRadius="20" Margin="0,10">
+                        <Button Content="Зареєструватися" Command="{Binding RegisterCommand}" Width="270" Height="45"
+                                Background="#FF1493" Foreground="White" FontSize="16" />
+                    </Border>
+
+                    <Border Background="#444444" CornerRadius="20" Margin="0,10">
+                        <Button Content="Назад" Command="{Binding BackCommand}" Width="270" Height="45"
+                                Background="#444444" Foreground="White" FontSize="16" />
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

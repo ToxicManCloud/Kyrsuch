@@ -1,0 +1,29 @@
+[
+  {
+    "Username": "dimaguriv@gmail.com",
+    "Password": "717162D",
+    "Name": "Dima",
+    "Gender": "Чоловік",
+    "Age": 20,
+    "Interest": "Книги",
+    "SubInterest": "Роман"
+  },
+  {
+    "Username": "Dimon",
+    "Password": "Dimon1",
+    "Name": "Dima",
+    "Gender": "System.Windows.Controls.ComboBoxItem: Чоловік",
+    "Age": 20,
+    "Interest": "Мультики",
+    "SubInterest": "Комедії"
+  },
+  {
+    "Username": "qwe",
+    "Password": "qwe123",
+    "Name": "dima",
+    "Gender": "Не хочу вказувати",
+    "Age": 2,
+    "Interest": "Фільми",
+    "SubInterest": "Трилер"
+  }
+]

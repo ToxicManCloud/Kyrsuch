@@ -1,0 +1,40 @@
+[
+  {
+    "InterestName": "Книги",
+    "SubInterests": [
+      "Детектив",
+      "Роман",
+      "Класика"
+    ]
+  },
+  {
+    "InterestName": "Фільми",
+    "SubInterests": [
+      "Трилер",
+      "Комедія",
+      "Драма"
+    ]
+  },
+  {
+    "InterestName": "Ігри",
+    "SubInterests": [
+      "Шутер",
+      "МОБА",
+      "Пригодницькі"
+    ]
+  },
+  {
+    "InterestName": "Серіали ",
+    "SubInterests": [
+      "СітКом",
+      "Жахи"
+    ]
+  },
+  {
+    "InterestName": "Мультики",
+    "SubInterests": [
+      "Комедії",
+      "Жахи"
+    ]
+  }
+]
