@@ -1,29 +1,56 @@
 [
   {
-    "Username": "dimaguriv@gmail.com",
-    "Password": "717162D",
-    "Name": "Dima",
-    "Gender": "Чоловік",
-    "Age": 20,
-    "Interest": "Книги",
-    "SubInterest": "Роман"
+    "Username": "Ivan",
+    "Password": "password123",
+    "Name": "Ivan Ivanov",
+    "SelectedGender": "System.Windows.Controls.ComboBoxItem: Чоловік",
+    "Age": 30,
+    "CityName": "Кременчук",
+    "ChatLink": "https://chat.link/lviv"
   },
   {
-    "Username": "Dimon",
-    "Password": "Dimon1",
-    "Name": "Dima",
-    "Gender": "System.Windows.Controls.ComboBoxItem: Чоловік",
-    "Age": 20,
-    "Interest": "Мультики",
-    "SubInterest": "Комедії"
-  },
-  {
-    "Username": "qwe",
+    "Username": "dimon",
     "Password": "qwe123",
     "Name": "dima",
-    "Gender": "Не хочу вказувати",
-    "Age": 2,
-    "Interest": "Фільми",
-    "SubInterest": "Трилер"
+    "SelectedGender": "Чоловік",
+    "Age": 20,
+    "CityName": "Кременчук",
+    "ChatLink": "https://chat.link/Kremenchuk"
+  },
+  {
+    "Username": "anastasia",
+    "Password": "N12345",
+    "Name": "Анастасія",
+    "SelectedGender": "Жіноча",
+    "Age": 18,
+    "CityName": "Кременчук",
+    "ChatLink": "https://chat.link/Kremenchuk"
+  },
+  {
+    "Username": "lyapkonastia@gmail.com",
+    "Password": "N12345",
+    "Name": "Настя",
+    "SelectedGender": "Жінка",
+    "Age": 18,
+    "CityName": "Кременчук",
+    "ChatLink": "https://chat.link/Kremenchuk"
+  },
+  {
+    "Username": "qqq",
+    "Password": "qwe123",
+    "Name": "qq",
+    "SelectedGender": "Чоловік",
+    "Age": 20,
+    "CityName": "Кременчук",
+    "ChatLink": "https://t.me/SpilkuvannyKremenchuk"
+  },
+  {
+    "Username": "q",
+    "Password": "qwe123",
+    "Name": "q",
+    "SelectedGender": "Чоловіча",
+    "Age": 20,
+    "CityName": "Київ",
+    "ChatLink": "https://t.me/SpilkuvannyKuiv"
   }
 ]
