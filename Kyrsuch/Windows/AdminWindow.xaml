@@ -10,7 +10,7 @@
     </Window.Background>
 
     <Grid>
-        <!-- Рамка з фоном -->
+        
         <Border Background="{DynamicResource BackgroundImage}" BorderBrush="#FF1493" BorderThickness="8" CornerRadius="20" Padding="10">
             <Border.Resources>
                 <ImageBrush x:Key="BackgroundImage" ImageSource="pack://application:,,,/Resource/фон.jpg" Stretch="UniformToFill" />
