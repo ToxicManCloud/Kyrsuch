@@ -6,6 +6,7 @@ using System.Windows;
 using System;
 using System.Linq;
 using System.IO;
+using Kyrsuch.Windows;
 
 public class UserInfoViewModel : ViewModelBase
 {

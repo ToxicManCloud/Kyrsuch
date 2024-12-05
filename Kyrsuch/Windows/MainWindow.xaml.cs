@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 
 
-namespace Kyrsuch
+namespace Kyrsuch.Windows
 {
     
     public partial class MainWindow : Window

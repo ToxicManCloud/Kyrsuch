@@ -85,47 +85,47 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AdminViewModel.cs" />
-    <Compile Include="AdminWindow.xaml.cs">
+    <Compile Include="ViewModel\AdminViewModel.cs" />
+    <Compile Include="Windows\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BaseViewModel.cs" />
-    <Compile Include="CitiesViewModel.cs" />
-    <Compile Include="CitiesWindow.xaml.cs">
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CitiesViewModel.cs" />
+    <Compile Include="Windows\CitiesWindow.xaml.cs">
       <DependentUpon>CitiesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="City.cs" />
-    <Compile Include="InterestsCollection.cs" />
-    <Compile Include="InverseBooleanToVisibilityConverter.cs" />
-    <Compile Include="MainViewModel.cs" />
-    <Compile Include="RegisterGmailViewModel.cs" />
-    <Compile Include="RegisterGmailWindow.xaml.cs">
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\CityCollection.cs" />
+    <Compile Include="Models\InverseBooleanToVisibilityConverter.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\RegisterGmailViewModel.cs" />
+    <Compile Include="Windows\RegisterGmailWindow.xaml.cs">
       <DependentUpon>RegisterGmailWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RegisterViewModel.cs" />
-    <Compile Include="RegisterWindow.xaml.cs">
+    <Compile Include="ViewModel\RegisterViewModel.cs" />
+    <Compile Include="Windows\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RelayCommand.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserInfoViewModel.cs" />
-    <Compile Include="UserInfoWindow.xaml.cs">
+    <Compile Include="Models\RelayCommand.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="ViewModel\UserInfoViewModel.cs" />
+    <Compile Include="Windows\UserInfoWindow.xaml.cs">
       <DependentUpon>UserInfoWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UsersViewModel.cs" />
-    <Compile Include="UsersWindow.xaml.cs">
+    <Compile Include="ViewModel\UsersViewModel.cs" />
+    <Compile Include="Windows\UsersWindow.xaml.cs">
       <DependentUpon>UsersWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModelBase.cs" />
-    <Page Include="AdminWindow.xaml">
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Page Include="Windows\AdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CitiesWindow.xaml">
+    <Page Include="Windows\CitiesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -133,23 +133,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="RegisterGmailWindow.xaml">
+    <Page Include="Windows\RegisterGmailWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RegisterWindow.xaml">
+    <Page Include="Windows\RegisterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserInfoWindow.xaml">
+    <Page Include="Windows\UserInfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UsersWindow.xaml">
+    <Page Include="Windows\UsersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -172,21 +172,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="cities.json" />
-    <None Include="ClassDiagram1.cd" />
+    <None Include="Json\cities.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="users.json" />
+    <None Include="Json\users.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Windows\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resource\фон.jpg" />
   </ItemGroup>

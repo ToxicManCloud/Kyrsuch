@@ -7,10 +7,11 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using Newtonsoft.Json;
+using Kyrsuch.Windows;
 
 namespace Kyrsuch
 {
-    public class RegisterViewModel : BaseViewModel
+    public class RegisterGmailViewModel : BaseViewModel
     {
         private const string UsersFilePath = "users.json";
         private const string CitiesFilePath = "cities.json";
@@ -99,7 +100,7 @@ namespace Kyrsuch
         public ICommand RegisterCommand { get; }
         public ICommand BackCommand { get; }
 
-        public RegisterViewModel()
+        public RegisterGmailViewModel()
         {
             RegisterCommand = new RelayCommand(Register);
             BackCommand = new RelayCommand(Back);
@@ -128,24 +129,23 @@ namespace Kyrsuch
 
         private void Register()
         {
-            if (Age < 18)
+            Username = Username.Trim();
+
+            // Перевірка, чи є Username правильним логіном типу gmail.com
+            if (!Username.EndsWith("@gmail.com", StringComparison.OrdinalIgnoreCase))
             {
-                MessageBox.Show("Ваш вік недостатній для реєстрації");
+                MessageBox.Show("Логін повинен бути поштою типу gmail.com");
                 return;
             }
-           
+
+            // Перевірка ім'я (тільки літери, без цифр чи спеціальних символів)
             if (string.IsNullOrWhiteSpace(Name) || Name.Any(c => !char.IsLetter(c)))
             {
                 MessageBox.Show("Ім'я повинно містити тільки літери.");
                 return;
             }
 
-            if (!Regex.IsMatch(Username, @"^[a-zA-Z]+$"))
-            {
-                MessageBox.Show("Логін повинен містити тільки літери");
-                return;
-            }
-
+            // Перевірка пароля
             if (Password.Length < 6 || !Password.Any(char.IsLetter) || !Password.Any(char.IsDigit))
             {
                 MessageBox.Show("Пароль повинен містити щонайменше 6 символів, включаючи літери та цифри");
@@ -157,6 +157,11 @@ namespace Kyrsuch
                 MessageBox.Show("Паролі не співпадають");
                 return;
             }
+            if (SelectedGender == null)
+            {
+                MessageBox.Show("Будь ласка оберіть стать");
+                return;
+            }
 
             if (SelectedCity == null)
             {
@@ -164,6 +169,11 @@ namespace Kyrsuch
                 return;
             }
 
+            if (Age < 18)
+            {
+                MessageBox.Show("Ваш вік недостатній для реєстрації");
+                return;
+            }
             var users = LoadUsers().ToList();
             if (users.Any(u => u.Username == Username))
             {
@@ -178,26 +188,28 @@ namespace Kyrsuch
             MessageBox.Show("Реєстрація успішна! Ви можете увійти.");
             var mainWindow = new MainWindow();
             mainWindow.Show();
-            Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w is RegisterWindow)?.Close();
+            Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w is RegisterGmailWindow)?.Close();
         }
+
+
 
         private void Back()
         {
             var mainWindow = new MainWindow();
             mainWindow.Show();
-            Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w is RegisterWindow)?.Close();
+            Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w is RegisterGmailWindow)?.Close();
         }
 
         private User[] LoadUsers()
         {
             if (!File.Exists(UsersFilePath))
             {
-                return new User[0];  // повертаємо пустий масив якщо файл не існує
+                return new User[0];   
             }
 
             var json = File.ReadAllText(UsersFilePath);
 
-            // намагання десерелізацію 
+            
             try
             {
                 var users = JsonConvert.DeserializeObject<User[]>(json);
@@ -205,7 +217,7 @@ namespace Kyrsuch
             }
             catch (JsonSerializationException)
             {
-                // перетворення файлу в масив
+                
                 var singleUser = JsonConvert.DeserializeObject<User>(json);
                 return singleUser != null ? new[] { singleUser } : new User[0];
             }
@@ -214,7 +226,7 @@ namespace Kyrsuch
 
         private void SaveUsers(User[] users)
         {
-            var json = JsonConvert.SerializeObject(users, Formatting.Indented);  // серіалізуємо вастивості
+            var json = JsonConvert.SerializeObject(users, Formatting.Indented);  
             File.WriteAllText(UsersFilePath, json);
         }
 

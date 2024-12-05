@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Kyrsuch
+namespace Kyrsuch.Windows
 {
     public partial class UserInfoWindow : Window
     {

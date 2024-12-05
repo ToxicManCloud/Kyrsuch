@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Input;
 using Newtonsoft.Json;
 using System.IO;
-using Kyrsuch;
+using Kyrsuch.Windows;
 using System.Windows;
 
 namespace Kyrsuch
