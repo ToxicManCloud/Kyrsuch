@@ -117,7 +117,7 @@
                         <TextBlock Text="Вік:" FontSize="14" Foreground="White" Margin="0,0,0,5"/>
                         <Border Background="#3E3E3E" BorderBrush="#FF1493" BorderThickness="2" CornerRadius="10" Height="40">
                             <TextBox Text="{Binding Age}" FontSize="14" 
-                                     Background="Transparent" Foreground="Black" Padding="10,0" Width="312" 
+                                     Background="Transparent" Foreground="White" Padding="10,0" Width="312" 
                                      HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
                         </Border>
                     </StackPanel>

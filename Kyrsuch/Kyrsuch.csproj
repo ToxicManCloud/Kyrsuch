@@ -116,7 +116,6 @@
     <Compile Include="Windows\UsersWindow.xaml.cs">
       <DependentUpon>UsersWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\ViewModelBase.cs" />
     <Page Include="Windows\AdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -8,7 +8,7 @@ using System.Linq;
 using System.IO;
 using Kyrsuch.Windows;
 
-public class UserInfoViewModel : ViewModelBase
+public class UserInfoViewModel : BaseViewModel
 {
     private User _currentUser;
     private List<User> _users;
